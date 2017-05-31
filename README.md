@@ -3,3 +3,9 @@
 <br>
 
 `hostname.py` - example hostname resolution
+`servicename.py` - Returns port number of commonly used ports by service name
+
+
+### Things to look into
+- https://tools.ietf.org/html/rfc791
+- TCP/IP Illustrated, Volume 1: The Protocols (2nd ed) Kevin R Fall & W. Richard Stevens
