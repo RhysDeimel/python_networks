@@ -3,7 +3,7 @@ import socket
 from datetime import datetime
 
 
-MAX_BYTES = 65535
+MAX_BYTES = 655355
 
 
 def server(port):
