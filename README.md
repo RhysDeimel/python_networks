@@ -5,6 +5,7 @@
 `hostname.py` - Example hostname resolution
 `servicename.py` - Returns port number of commonly used ports by service name
 `udp_client_server.py` - Small UDP client/server example
+`udp_client_server_backoff.py` - Small UDP client/server with exponential backoff
 
 
 ### Things to look into
