@@ -2,8 +2,9 @@
 > doing networky stuff with python.
 <br>
 
-`hostname.py` - example hostname resolution
+`hostname.py` - Example hostname resolution
 `servicename.py` - Returns port number of commonly used ports by service name
+`udp_client_server.py` - Small UDP client/server example
 
 
 ### Things to look into
