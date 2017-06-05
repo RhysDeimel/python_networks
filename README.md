@@ -2,12 +2,12 @@
 > doing networky stuff with python.
 <br>
 
-`hostname.py` - Example hostname resolution
-`large_datagram.py` - On linux, sends a large datagram
-`servicename.py` - Returns port number of commonly used ports by service name
-`udp_broadcast.py` - UDP client/server that uses the broadcast address
-`udp_client_server.py` - Small UDP client/server example
-`udp_client_server_backoff.py` - Small UDP client/server with exponential backoff
+- `hostname.py` - Example hostname resolution
+- `large_datagram.py` - On linux, sends a large datagram
+- `servicename.py` - Returns port number of commonly used ports by service name
+- `udp_broadcast.py` - UDP client/server that uses the broadcast address
+- `udp_client_server.py` - Small UDP client/server example
+- `udp_client_server_backoff.py` - Small UDP client/server with exponential backoff
 
 
 ### Things to look into
