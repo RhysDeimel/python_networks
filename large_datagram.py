@@ -1,9 +1,9 @@
 # Works on Linux, Windows has issues
-# call with: python udp_client_server_backoff.py server ""
-#            python udp_client_server_backoff.py server 127.0.0.1
-#            python udp_client_server_backoff.py server [external interface]
-#            python udp_client_server_backoff.py client [machine hostname]
-#            python udp_client_server_backoff.py client [ipaddress of server]
+# call with: python large_datagram.py server ""
+#            python large_datagram.py server 127.0.0.1
+#            python large_datagram.py server [external interface]
+#            python large_datagram.py client [machine hostname]
+#            python large_datagram.py client [ipaddress of server]
 import IN
 import argparse
 import socket
