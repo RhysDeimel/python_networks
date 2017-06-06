@@ -1,3 +1,9 @@
+# call with: python udp_broadcast.py server ""
+#            python udp_broadcast.py server 127.0.0.1
+#            python udp_broadcast.py server [external interface]
+#            python udp_broadcast.py client [machine hostname]
+#            python udp_broadcast.py client [ipaddress of server]
+#            python udp_broadcast.py client "<broadcast>"
 import argparse
 import socket
 
