@@ -1,4 +1,9 @@
 # Works on Linux, Windows has issues
+# call with: python udp_client_server_backoff.py server ""
+#            python udp_client_server_backoff.py server 127.0.0.1
+#            python udp_client_server_backoff.py server [external interface]
+#            python udp_client_server_backoff.py client [machine hostname]
+#            python udp_client_server_backoff.py client [ipaddress of server]
 import IN
 import argparse
 import socket
