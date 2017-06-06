@@ -1,3 +1,6 @@
+# call with: python udp_client_server.py server
+#            python udp_client_server.py client
+
 import argparse
 import socket
 from datetime import datetime
