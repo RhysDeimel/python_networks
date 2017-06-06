@@ -1,3 +1,9 @@
+# call with: python udp_client_server_backoff.py server ""
+#            python udp_client_server_backoff.py server 127.0.0.1
+#            python udp_client_server_backoff.py server [external interface]
+#            python udp_client_server_backoff.py client [machine hostname]
+#            python udp_client_server_backoff.py client [ipaddress of server]
+
 import argparse
 import socket
 import random
