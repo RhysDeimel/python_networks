@@ -2,7 +2,7 @@
 # Sends data and then closes the socket, not waiting or expecting a reply
 
 import socket
-from Argparse import ArgumentParser
+from argparse import ArgumentParser
 
 
 def server(address):
