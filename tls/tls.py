@@ -23,7 +23,7 @@ def client(host, port, cafile=None):
 
     raw_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     raw_sock.connect((host, port))
-    print("Connected to host {!r} and port {}".format(host, port))
+    print('Connected to host {!r} and port {}'.format(host, port))
     ssl_sock = context.wrap_socket(raw_sock, server_hostname=host)
 
     while True:
@@ -42,22 +42,22 @@ def server(host, port, certfile, cafile=None):
     listener.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     listener.bind((host, port))
     listener.listen(1)
-    print("Listening at interface {!r} and port {}".format(host, port))
+    print('Listening at interface {!r} and port {}'.format(host, port))
     raw_sock, address = listener.accept()
-    print("Connection from host {!r} and port {}".format(*address))
+    print('Connection from host {!r} and port {}'.format(*address))
     ssl_sock = context.wrap_socket(raw_sock, server_side=True)
 
-    ssl_sock.sendall("Simple is better than complex.".encode('ascii'))
+    ssl_sock.sendall('Simple is better than complex.'.encode('ascii'))
     ssl_sock.close()
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Safe TLS client and server')
-    parser.add_argument("host", help='hostname or IP address')
-    parser.add_argument("port", type=int, help='TCP port number')
-    parser.add_argument("-a", metavar='cafile', default=None,
+    parser.add_argument('host', help='hostname or IP address')
+    parser.add_argument('port', type=int, help='TCP port number')
+    parser.add_argument('-a', metavar='cafile', default=None,
                         help='authority: path to CA certificate PEM file')
-    parser.add_argument("-s", metavar='certfile', default=None,
+    parser.add_argument('-s', metavar='certfile', default=None,
                         help='run as server: path to server PEM file')
     args = parser.parse_args()
     if args.s:

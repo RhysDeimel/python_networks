@@ -18,6 +18,7 @@ def open_tls(context, address, server=False):
         raw_sock.listen(1)
         say('Interface where we are listening', address)
         raw_client_sock, address = raw_sock.accept()
+        say('Client has connected from address', address)
         return context.wrap_socket(raw_client_sock, server_side=True)
     else:
         say('Address we want to talk to', address)
@@ -62,7 +63,7 @@ def describe(ssl_sock, hostname, server=False, debug=False):
     compression = ssl_sock.compression()
 
     say('Cipher chosen for this connection', cipher)
-    say('Cipher defined in this version', version)
+    say('Cipher defined in TLS version', version)
     say('Cipher key has this many bits', bits)
     say('Compression algorithm in use', compression or 'none')
 
@@ -71,6 +72,7 @@ def describe(ssl_sock, hostname, server=False, debug=False):
 
 class PySSLSocket(ctypes.Structure):
     """The first few fields of a PySSLSocket"""
+
     _fields_ = [('ob_refcnt', ctypes.c_ulong), ('ob_type', ctypes.c_void_p),
                 ('Socket', ctypes.c_void_p), ('ssl', ctypes.c_void_p)]
 
@@ -104,8 +106,8 @@ def say(title, *words):
 
 
 def fill(text):
-    return textwrap.fill(text, subsequent_indent='   ',
-                         break_long_words=False, break_on_hypehns=False)
+    return textwrap.fill(text, subsequent_indent='    ',
+                         break_long_words=False, break_on_hyphens=False)
 
 
 if __name__ == '__main__':
@@ -126,10 +128,11 @@ if __name__ == '__main__':
                         help='debug mode: do not hide "ctypes" exceptions')
     parser.add_argument('-v', action='store_true', default=False,
                         help='verbose: print out remote certificate')
-    args = parse.parse_args()
+    args = parser.parse_args()
 
     address = (args.host, args.port)
     protocol = lookup('PROTOCOL_', args.p)
+
     context = ssl.SSLContext(protocol)
     context.set_ciphers(args.C)
     context.check_hostname = False
@@ -137,14 +140,13 @@ if __name__ == '__main__':
         parser.error('you cannot specify both -c and -s')
     elif args.s is not None:
         context.verify_mode = ssl.CERT_OPTIONAL
-        purpose = ssl.Purpse.CLIENT_AUTH
+        purpose = ssl.Purpose.CLIENT_AUTH
         context.load_cert_chain(args.s)
     else:
         context.verify_mode = ssl.CERT_REQUIRED
         purpose = ssl.Purpose.SERVER_AUTH
         if args.c is not None:
             context.load_cert_chain(args.c)
-
     if args.a is None:
         context.load_default_certs(purpose)
     else:
@@ -156,25 +158,3 @@ if __name__ == '__main__':
     print()
     if args.v:
         pprint(cert)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
